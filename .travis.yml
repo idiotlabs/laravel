@@ -12,7 +12,7 @@ addons:
   sonarcloud:
     organization: "idiotlabs" # the key of the org you chose at step #3
     token:
-      secure: SONAR_TOKEN
+      secure: $SONAR_TOKEN
 
 script:
   - npm run prod
