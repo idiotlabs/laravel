@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Sucol;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class AlbumController extends Controller
 {
@@ -12,71 +13,109 @@ class AlbumController extends Controller
     }
 
     /**
-     * 전체 아티스트 앨범 정보 가져오기
+     * (api) 전체 아티스트 앨범 정보 가져오기
      */
     public function albumList() {
+
         $data = array();
 
-        $size = 5;
+        $albums = DB::select('select * from sucol_albums order by id desc');
 
-        // 4th
-        $temp = array();
-        $temp['no'] = 0;
-        $temp['name'] = '4th Artist';
-        $temp['cover_image'] = asset('/images/sucol') . '/artist4.jpg';
+        foreach ($albums as $album) {
+            $temp = array();
 
-        // 4th song
-        $songs = array();
+            // album
+            $temp['no'] = $album->id;
+            $temp['name'] = $album->title;
+            $temp['cover_image'] = $album->image;
 
-        $temp_song = array();
-        $temp_song['artist'] = '목9';
-        $temp_song['title'] = '캔디';
-        $temp_song['image'] = asset('/images/sucol/team') . '/4-1.jpg';
-        $temp_song['url'] = asset('/uploads/sucol') . '/candy.mp3';
-        array_push($songs, $temp_song);
+            // songs
+            $songs = array();
 
-        $temp_song = array();
-        $temp_song['artist'] = '금9';
-        $temp_song['title'] = '그때';
-        $temp_song['image'] = asset('/images/sucol/team') . '/4-2.jpg';
-        $temp_song['url'] = asset('/uploads/sucol') . '/that.mp3';
-        array_push($songs, $temp_song);
+            $song_list = DB::select('select * from sucol_album_songs where album_id = ?', array($album->id));
 
-        $temp['songs'] = $songs;
+            foreach ($song_list as $song) {
+                $temp_song = array();
+                $temp_song['id'] = $song->id;
+                $temp_song['artist'] = $song->artist;
+                $temp_song['title'] = $song->name;
+                $temp_song['image'] = $song->image;
+                $temp_song['url'] = $song->url;
+                array_push($songs, $temp_song);
+            }
 
-        array_push($data, $temp);
+            $temp['songs'] = $songs;
 
-        // 3th
-        $temp = array();
-        $temp['no'] = 1;
-        $temp['name'] = '3th Artist';
-        $temp['cover_image'] = asset('/images/sucol') . '/artist3.jpg';
-
-        // 3th song
-        $songs = array();
-
-        $temp_song = array();
-        $temp_song['artist'] = '목8';
-        $temp_song['title'] = '타이밍';
-        $temp_song['image'] = asset('/images/sucol/team') . '/3-1.jpg';
-        $temp_song['url'] = asset('/uploads/sucol') . '/timing.mp3';
-        array_push($songs, $temp_song);
-
-        $temp_song = array();
-        $temp_song['artist'] = '금8';
-        $temp_song['title'] = '톰보이';
-        $temp_song['image'] = asset('/images/sucol/team') . '/3-2.jpg';
-        $temp_song['url'] = asset('/uploads/sucol') . '/tomboy.mp3';
-        array_push($songs, $temp_song);
-
-        $temp['songs'] = $songs;
-
-        array_push($data, $temp);
+            // push in data
+            array_push($data, $temp);
+        }
 
         return response()->json($data);
     }
 
     public function albumSongList($id) {
+    }
 
+    /**
+     * (api) 앨범 최초 등록
+     */
+    public function addAlbum() {
+        $sql = "insert into sucol_albums (create_at) values (now())";
+        $results = DB::insert($sql);
+
+        if ($results) {
+            return $this->albumList();
+        }
+    }
+
+    /**
+     * (api) 앨범 수정
+     */
+    public function updateAlbum(Request $request) {
+        $id = $request->input('id');
+        $title = $request->input('title');
+        $image = $request->input('img');
+        $songs = $request->input('songs');
+        $deletesongs = $request->input('deletesongs');
+
+        // album update
+        try {
+            $sql = "update sucol_albums set title = ?, image = ? where id = ?";
+            $result = DB::update($sql, array($title, $image, $id));
+
+            foreach ($songs as $song) {
+                if ($song['id'] == 'new') {
+                    $sql = "insert into sucol_album_songs (album_id, artist, name, image, url, create_at) values (?, ?, ?, ?, ?, now())";
+                    $result = DB::insert($sql, array($id, $song['artist'], $song['title'], $song['image'], $song['url']));
+                } else {
+                    $sql = "update sucol_album_songs set artist = ?, name = ?, image = ?, url = ? where id = ?";
+                    $result = DB::update($sql, array($song['artist'], $song['title'], $song['image'], $song['url'], $song['id']));
+                }
+            }
+
+            foreach ($deletesongs as $song_id) {
+                $sql = "delete from sucol_album_songs where id = ?";
+                $result = DB::delete($sql, array($song_id));
+            }
+
+            return $this->albumList();
+        } catch (\Exception $e) {
+
+            return response()->json($e);
+        }
+    }
+
+    /**
+     * (api) 앨범 삭제
+     */
+    public function deleteAlbum(Request $request) {
+        $id = $request->input('id');
+
+        $sql = "delete from sucol_albums where id = ?";
+        $result = DB::delete($sql, array($id));
+
+        if ($result) {
+            return $this->albumList();
+        }
     }
 }
