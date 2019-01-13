@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,8 +11,8 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
-
 Route::post('sucol/artist/albums', 'Sucol\AlbumController@albumList');
+
+Route::post('sucol/artist/album', 'Sucol\AlbumController@addAlbum');
+Route::put('sucol/artist/album', 'Sucol\AlbumController@updateAlbum');
+Route::delete('sucol/artist/album', 'Sucol\AlbumController@deleteAlbum');
