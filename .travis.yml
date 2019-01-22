@@ -8,12 +8,5 @@ before_script:
   - composer install --no-interaction
   - npm install
 
-addons:
-  sonarcloud:
-    organization: "idiotlabs" # the key of the org you chose at step #3
-    token:
-      secure: $SONAR_TOKEN
-
 script:
   - npm run prod
-  - sonar-scanner

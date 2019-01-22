@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 // Test of Vuetify
-Route::get('/vuetify', function() {
+Route::get('/vuetify', function () {
     return view('vuetify', [
         'token' => null,
         'email' => '',
@@ -25,7 +25,7 @@ Route::get('/vuetify', function() {
 });
 
 // Sucol
-Route::prefix('sucol')->group( function() {
+Route::prefix('sucol')->group(function () {
     Route::get('/', 'Sucol\SucolController@index')->middleware('auth.sucol');
     Route::get('/artistalbum', 'Sucol\SucolController@artistalbum')->middleware('auth.sucol');
 });

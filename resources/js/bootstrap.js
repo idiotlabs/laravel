@@ -22,8 +22,8 @@ if (token) {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
-let userHeader = document.head.querySelector('meta[name="user"]')
-window.user = null
+let userHeader = document.head.querySelector('meta[name="user"]');
+window.user = null;
 if (userHeader) if (userHeader.content) window.user = JSON.parse(userHeader.content);
 
 /**
