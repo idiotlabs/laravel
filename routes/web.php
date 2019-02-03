@@ -29,3 +29,8 @@ Route::prefix('sucol')->group(function () {
     Route::get('/', 'Sucol\SucolController@index')->middleware('auth.sucol');
     Route::get('/artistalbum', 'Sucol\SucolController@artistalbum')->middleware('auth.sucol');
 });
+
+// NumberMatching
+Route::prefix('numbermatching')->group(function() {
+    Route::get('/', 'NumberMatchingController@index');
+});

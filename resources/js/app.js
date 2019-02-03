@@ -22,6 +22,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('sucol-album-component', require('./components/sucol/AlbumComponent'));
 Vue.component('sucol-song-form-component', require('./components/sucol/SongFormComponent'));
 
+Vue.component('numbermatching-manual-component', require('./components/numbermatcing/ManualComponent'));
+
 const app = new Vue({
     el: '#app',
 });
