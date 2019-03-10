@@ -39,6 +39,11 @@ Route::get('/vuetify', function () {
     ]);
 });
 
+// Dice
+Route::prefix('dice')->group(function() {
+    Route::get('/agreement', 'DiceController@agreement');
+});
+
 // Sucol
 Route::prefix('sucol')->group(function () {
     Route::get('/', 'Sucol\SucolController@index')->middleware('auth.sucol');
