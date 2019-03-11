@@ -42,6 +42,7 @@ Route::get('/vuetify', function () {
 // Dice
 Route::prefix('dice')->group(function() {
     Route::get('/agreement', 'DiceController@agreement');
+    Route::get('/privacy', 'DiceController@Privacy');
 });
 
 // Sucol
