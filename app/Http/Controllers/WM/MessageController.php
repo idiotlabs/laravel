@@ -55,8 +55,13 @@ class MessageController extends Controller
             $index = $request->index;
             $offset = $request->offset;
 
-            $sql = "select id, message, created_at from wm_message where user_id = ? order by id desc limit ?, ?";
-            $results = DB::select($sql, [$user_id, $index, $offset]);
+            $results = DB::table('wm_message')
+                ->select('id', 'message', 'created_at')
+                ->where('user_id', $user_id)
+                ->offset($index)
+                ->limit($offset)
+                ->orderByDesc('id')
+                ->get();
 
             $response['data'] = $results;
             $response['count'] = count($results);
@@ -87,8 +92,9 @@ class MessageController extends Controller
             $user_agent = $_SERVER['HTTP_USER_AGENT'];
             $user_ip = $_SERVER['REMOTE_ADDR'];
 
-            $sql = "insert into wm_message (user_id, user_agent, user_ip, message) values (?, ?, ?, ?)";
-            $result = DB::insert($sql, [$user_id, $user_agent, $user_ip, $message]);
+            $result = DB::table('wm_message')->insert(
+                ['user_id' => $user_id, 'user_agent' => $user_agent, 'user_ip' => $user_ip, 'message' => $message]
+            );
 
             $response['code'] = $result;
         } catch (\Exception $e) {
