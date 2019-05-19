@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\WM;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class MessageController extends Controller
@@ -11,13 +11,14 @@ class MessageController extends Controller
     /**
      * 유저 등록하기
      */
-    public function user(Request $request) {
-        $response = array();
+    public function user(Request $request)
+    {
+        $response = [];
 
         try {
             $user_token = $request->user_token;
 
-            if ($user_token == '') {
+            if ($user_token === '') {
                 throw new \Exception('not have user_token', 0);
             }
 
@@ -34,7 +35,6 @@ class MessageController extends Controller
 
             $response['code'] = 1;
             $response['user_id'] = $user_id;
-
         } catch (\Exception $e) {
             $response['code'] = $e->getCode();
             $response['message'] = $e->getMessage();
@@ -48,7 +48,7 @@ class MessageController extends Controller
      */
     public function list(Request $request)
     {
-        $response = array();
+        $response = [];
 
         try {
             $user_id = $request->user_id;
@@ -65,7 +65,6 @@ class MessageController extends Controller
 
             $response['data'] = $results;
             $response['count'] = count($results);
-
         } catch (\Exception $e) {
             $response['code'] = $e->getCode();
             $response['message'] = $e->getMessage();
@@ -84,7 +83,7 @@ class MessageController extends Controller
     public function send(Request $request)
     {
         try {
-            $response = array();
+            $response = [];
 
             $user_id = $request->user_id;
             $message = $request->message;
