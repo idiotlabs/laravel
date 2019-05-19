@@ -26,7 +26,7 @@ Route::domain('sucol.idiotlabs.kr')->group(function () {
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/info', function() {
+Route::get('/info', function () {
     return view('info');
 });
 
@@ -40,7 +40,7 @@ Route::get('/vuetify', function () {
 });
 
 // Dice
-Route::prefix('dice')->group(function() {
+Route::prefix('dice')->group(function () {
     Route::get('/agreement', 'DiceController@agreement');
     Route::get('/privacy', 'DiceController@Privacy');
 });
@@ -52,6 +52,6 @@ Route::prefix('sucol')->group(function () {
 });
 
 // NumberMatching
-Route::prefix('numbermatching')->group(function() {
+Route::prefix('numbermatching')->group(function () {
     Route::get('/', 'NumberMatchingController@index');
 });
