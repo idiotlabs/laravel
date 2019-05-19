@@ -16,3 +16,8 @@ Route::post('sucol/artist/albums', 'Sucol\AlbumController@albumList');
 Route::post('sucol/artist/album', 'Sucol\AlbumController@addAlbum');
 Route::put('sucol/artist/album', 'Sucol\AlbumController@updateAlbum');
 Route::delete('sucol/artist/album', 'Sucol\AlbumController@deleteAlbum');
+
+// warm_message
+Route::post('/wm/user', 'WM\MessageController@user');
+Route::post('/wm/list', 'WM\MessageController@list');
+Route::post('/wm/message', 'WM\MessageController@send');
