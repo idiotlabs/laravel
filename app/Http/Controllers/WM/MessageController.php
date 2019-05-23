@@ -91,11 +91,37 @@ class MessageController extends Controller
             $user_agent = $_SERVER['HTTP_USER_AGENT'];
             $user_ip = $_SERVER['REMOTE_ADDR'];
 
-            $result = DB::table('wm_message')->insert(
+            $result = DB::table('wm_message')->insertGetId(
                 ['user_id' => $user_id, 'user_agent' => $user_agent, 'user_ip' => $user_ip, 'message' => $message]
             );
 
+            $this->spread($result);
+
             $response['code'] = $result;
+        } catch (\Exception $e) {
+            $response['code'] = $e->getCode();
+            $response['message'] = $e->getMessage();
+        }
+
+        return response()->json($response);
+    }
+
+    /**
+     * 메세지 뿌리기
+     *
+     * @param $message_id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function spread($message_id)
+    {
+        try {
+            $users = DB::table('wm_user')->inRandomOrder()->limit(5)->get();
+
+            foreach ($users as $user) {
+                DB::table('wm_spread')->insert(
+                    ['message_id' => $message_id, 'receive_user_id' => $user->id]
+                );
+            }
         } catch (\Exception $e) {
             $response['code'] = $e->getCode();
             $response['message'] = $e->getMessage();
