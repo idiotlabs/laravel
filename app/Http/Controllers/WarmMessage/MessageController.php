@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\WM;
+namespace App\Http\Controllers\WarmMessage;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
