@@ -16,6 +16,13 @@ class MessageController extends Controller
         $response = [];
 
         try {
+            $header = $request->header('Authorization');
+            $auth = explode(" ", $header);
+
+            if (!($auth[0] == "Bearer" && $auth[1] == "a-b-c")) {
+                throw new \Exception('not auth', 0);
+            }
+
             $user_token = $request->user_token;
 
             if ($user_token === '') {
