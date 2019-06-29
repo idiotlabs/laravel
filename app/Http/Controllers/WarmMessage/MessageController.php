@@ -144,13 +144,6 @@ class MessageController extends Controller
         $response = [];
 
         try {
-            $header = $request->header('Authorization');
-            $auth = explode(" ", $header);
-
-            if (!($auth[0] == "Bearer" && $auth[1] == "a-b-c")) {
-                throw new \Exception('not auth', 0);
-            }
-
             // 나를 제외한 5명을 랜덤으로 가져온다
             $users = DB::table('wm_user')
                 ->where('id', '<>', $user_id)
