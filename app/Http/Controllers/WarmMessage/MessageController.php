@@ -58,16 +58,29 @@ class MessageController extends Controller
         $response = [];
 
         try {
+            $header = $request->header('Authorization');
+            $auth = explode(" ", $header);
+
+            if (!($auth[0] == "Bearer" && $auth[1] == "a-b-c")) {
+                throw new \Exception('not auth', 0);
+            }
+
             $user_id = $request->user_id;
             $index = $request->index;
             $offset = $request->offset;
 
-            $results = DB::table('wm_message')
-                ->select('id', 'message', 'created_at')
-                ->where('user_id', $user_id)
+            // 발송 받은 메세지 가져오기
+
+            // select b.id, b.message, b.created_at from wm_spread a left join wm_message b on a.message_id = b.id
+            // where a.receive_user_id = 2 and a.send = 1
+            $results = DB::table('wm_spread')
+                ->select('wm_message.id', 'wm_message.message', 'wm_message.created_at')
+                ->leftJoin('wm_message', 'wm_spread.message_id', '=', 'wm_message.id')
+                ->where('wm_spread.receive_user_id', $user_id)
+                ->where('wm_spread.send', 1)
                 ->offset($index)
                 ->limit($offset)
-                ->orderByDesc('id')
+                ->orderByDesc('wm_spread.id')
                 ->get();
 
             $response['data'] = $results;
@@ -81,7 +94,6 @@ class MessageController extends Controller
     }
 
     /**
-     *
      * 메세지 저장하기
      *
      * @param Request $request
@@ -89,8 +101,15 @@ class MessageController extends Controller
      */
     public function send(Request $request)
     {
+        $response = [];
+
         try {
-            $response = [];
+            $header = $request->header('Authorization');
+            $auth = explode(" ", $header);
+
+            if (!($auth[0] == "Bearer" && $auth[1] == "a-b-c")) {
+                throw new \Exception('not auth', 0);
+            }
 
             $user_id = $request->user_id;
             $message = $request->message;
@@ -98,13 +117,13 @@ class MessageController extends Controller
             $user_agent = $_SERVER['HTTP_USER_AGENT'];
             $user_ip = $_SERVER['REMOTE_ADDR'];
 
-            $result = DB::table('wm_message')->insertGetId(
+            $message_id = DB::table('wm_message')->insertGetId(
                 ['user_id' => $user_id, 'user_agent' => $user_agent, 'user_ip' => $user_ip, 'message' => $message]
             );
 
-            $this->spread($result);
+            $this->spread($user_id, $message_id);
 
-            $response['code'] = $result;
+            $response['code'] = $message_id;
         } catch (\Exception $e) {
             $response['code'] = $e->getCode();
             $response['message'] = $e->getMessage();
@@ -116,17 +135,30 @@ class MessageController extends Controller
     /**
      * 메세지 뿌리기
      *
+     * @param $user_id
      * @param $message_id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function spread($message_id)
+    public function spread($user_id, $message_id)
     {
+        $response = [];
+
         try {
-            $users = DB::table('wm_user')->inRandomOrder()->limit(5)->get();
+            $header = $request->header('Authorization');
+            $auth = explode(" ", $header);
+
+            if (!($auth[0] == "Bearer" && $auth[1] == "a-b-c")) {
+                throw new \Exception('not auth', 0);
+            }
+
+            // 나를 제외한 5명을 랜덤으로 가져온다
+            $users = DB::table('wm_user')
+                ->where('id', '<>', $user_id)
+                ->inRandomOrder()->limit(5)->get();
 
             foreach ($users as $user) {
                 DB::table('wm_spread')->insert(
-                    ['message_id' => $message_id, 'receive_user_id' => $user->id]
+                    ['message_id' => $message_id, 'receive_user_id' => $user->id, 'send' => -1]
                 );
             }
         } catch (\Exception $e) {
