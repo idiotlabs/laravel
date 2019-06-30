@@ -25,6 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('telescope:prune --hours=48')->daily();
+
         // WM Send Notification
         $schedule->job(new WarmMessagePush())
             ->hourly()
