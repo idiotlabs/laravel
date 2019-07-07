@@ -151,7 +151,7 @@ class MessageController extends Controller
 
             foreach ($users as $user) {
                 DB::table('wm_spread')->insert(
-                    ['message_id' => $message_id, 'receive_user_id' => $user->id, 'send' => -1]
+                    ['message_id' => $message_id, 'receive_user_id' => $user->id, 'send' => 0]
                 );
             }
         } catch (\Exception $e) {
