@@ -55,3 +55,9 @@ Route::prefix('sucol')->group(function () {
 Route::prefix('numbermatching')->group(function () {
     Route::get('/', 'NumberMatchingController@index');
 });
+
+// WarmMessage
+Route::prefix('warmmessage')->group(function() {
+    Route::get('/admin', 'WarmMessage\AdminController@admin');
+    Route::get('/admin/messages', 'WarmMessage\AdminController@messages');
+});
