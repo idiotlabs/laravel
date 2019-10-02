@@ -9,12 +9,12 @@
         "brozot/laravel-fcm": "^1.2",
         "calebporzio/livewire": "^0.1.0",
         "fideloper/proxy": "^4.0",
-        "inspector-apm/inspector-laravel": "^2.3",
-        "laravel-frontend-presets/vuetify": "^1.0",
-        "laravel/framework": "5.8.*",
+        "inspector-apm/inspector-laravel": "^3.0",
+        "laravel/framework": "^6.0",
+        "laravel/helpers": "^1.1",
         "laravel/telescope": "^2.0",
         "laravel/tinker": "^1.0",
-        "sentry/sentry-laravel": "1.0.2"
+        "sentry/sentry-laravel": "^1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
