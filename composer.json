@@ -10,7 +10,6 @@
         "brozot/laravel-fcm": "^1.2",
         "calebporzio/livewire": "^0.1.0",
         "fideloper/proxy": "^4.0",
-        "inspector-apm/inspector-laravel": "^3.0",
         "laravel/framework": "^6.0",
         "laravel/helpers": "^1.1",
         "laravel/passport": "^7.5",
