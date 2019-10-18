@@ -163,6 +163,8 @@ return [
 
         LaravelFCM\FCMServiceProvider::class,
 
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
+
     ],
 
     /*
