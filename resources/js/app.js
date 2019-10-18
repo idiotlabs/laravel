@@ -17,12 +17,12 @@ Vue.use(BootstrapVue);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('sucol-album-component', require('./components/sucol/AlbumComponent'));
-Vue.component('sucol-song-form-component', require('./components/sucol/SongFormComponent'));
+Vue.component('sucol-album-component', require('./components/sucol/AlbumComponent').default);
+Vue.component('sucol-song-form-component', require('./components/sucol/SongFormComponent').default);
 
-Vue.component('numbermatching-manual-component', require('./components/numbermatcing/ManualComponent'));
+Vue.component('numbermatching-manual-component', require('./components/numbermatcing/ManualComponent').default);
 
 const app = new Vue({
     el: '#app',

@@ -61,3 +61,8 @@ Route::prefix('warmmessage')->group(function() {
     Route::get('/admin', 'WarmMessage\AdminController@admin');
     Route::get('/admin/messages', 'WarmMessage\AdminController@messages');
 });
+
+// DEV
+Route::prefix('dev')->group(function () {
+    Route::get('/session', 'DevController@session');
+});
