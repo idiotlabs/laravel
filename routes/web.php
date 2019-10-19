@@ -58,6 +58,8 @@ Route::prefix('numbermatching')->group(function () {
 
 // WarmMessage
 Route::prefix('warmmessage')->group(function() {
+    Route::get('/privacy', 'WarmMessage\AdminController@Privacy');
+
     Route::get('/admin', 'WarmMessage\AdminController@admin');
     Route::get('/admin/messages', 'WarmMessage\AdminController@messages');
 });

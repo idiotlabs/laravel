@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Jobs\WarmMessagePush;
+use App\Jobs\WarmMessageSpread;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -20,17 +21,17 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('telescope:prune --hours=48')->daily();
 
-        // WM Send Notification
-        $schedule->job(new WarmMessagePush())
+        // WM Message spread
+        $schedule->job(new WarmMessageSpread())
             ->hourly()
-            ->between('8:00', '21:00');
+            ->between('8:00', '22:00');
     }
 
     /**

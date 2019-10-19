@@ -38,8 +38,7 @@ class WarmMessagePush implements ShouldQueue
         $push_lists =  DB::table('wm_spread')
                         ->leftJoin('wm_message', 'wm_spread.message_id', '=', 'wm_message.id')
                         ->leftJoin('wm_user', 'wm_spread.receive_user_id', '=', 'wm_user.id')
-                        ->where('send', 0)
-                        ->whereNotNull('device_id')
+                        ->where('send', '<', 0)
                         ->select('wm_spread.id', 'wm_message.message', 'wm_user.device_id')
                         ->get();
 
@@ -51,25 +50,31 @@ class WarmMessagePush implements ShouldQueue
         foreach($push_lists as $push_list) {
             $wm_spread_id = $push_list->id;
 
-            $push_title = '당신께 도착한 말이 있습니다';
+            $push_title = '도착한 따뜻함이 있습니다.';
             $push_body = $push_list->message;
             $push_token = $push_list->device_id;
 
-            $notificationBuilder = new PayloadNotificationBuilder($push_title);
-            $notificationBuilder->setBody($push_body)->setSound('default');
+            $send = 0;
 
-            $option = $optionBuilder->build();
-            $notification = $notificationBuilder->build();
-            $data = $dataBuilder->build();
+            if ($push_token) {
+                $notificationBuilder = new PayloadNotificationBuilder($push_title);
+                $notificationBuilder->setBody($push_body)->setSound('default');
 
-            $token = $push_token;
+                $option = $optionBuilder->build();
+                $notification = $notificationBuilder->build();
+                $data = $dataBuilder->build();
 
-            $downstreamResponse = FCM::sendTo($token, $option, $notification, $data);
+                $token = $push_token;
+
+                $downstreamResponse = FCM::sendTo($token, $option, $notification, $data);
+
+                $send = $downstreamResponse->numberSuccess();
+            }
 
             // wm_spread table에 발송 이력 업데이트
             DB::table('wm_spread')
                 ->where('id', $wm_spread_id)
-                ->update(['send' => 1]);
+                ->update(['send' => $send]);
         }
 
 //        $downstreamResponse->numberSuccess();

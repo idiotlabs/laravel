@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         'auth.sucol' => \App\Http\Middleware\AuthSucol::class,
+
     ];
 }
