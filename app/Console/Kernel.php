@@ -6,6 +6,7 @@ use App\Jobs\WarmMessagePush;
 use App\Jobs\WarmMessageSpread;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -32,6 +33,11 @@ class Kernel extends ConsoleKernel
         $schedule->job(new WarmMessageSpread())
             ->hourly()
             ->between('8:00', '22:00');
+
+        // Test Logging
+        $schedule->call(function () {
+            Log::info('test logging');
+        })->hourly();
     }
 
     /**
