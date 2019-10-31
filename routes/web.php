@@ -67,4 +67,6 @@ Route::prefix('warmmessage')->group(function() {
 // DEV
 Route::prefix('dev')->group(function () {
     Route::get('/session', 'DevController@session');
+
+    Route::get('/test/log', 'DevController@test_log');
 });
