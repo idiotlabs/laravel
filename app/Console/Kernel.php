@@ -33,11 +33,6 @@ class Kernel extends ConsoleKernel
         $schedule->job(new WarmMessageSpread())
             ->hourly()
             ->between('8:00', '22:00');
-
-        // Test Logging
-        $schedule->call(function () {
-            Log::info('test logging');
-        })->hourly();
     }
 
     /**
