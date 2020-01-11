@@ -9,6 +9,7 @@
         "arcanedev/log-viewer": "5.x",
         "brozot/laravel-fcm": "^1.2",
         "fideloper/proxy": "^4.0",
+        "inspector-apm/inspector-laravel": "^4.1",
         "laravel/framework": "^6.0",
         "laravel/helpers": "^1.1",
         "laravel/passport": "^7.5",
