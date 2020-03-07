@@ -20,3 +20,6 @@ Route::delete('sucol/artist/album', 'Sucol\AlbumController@deleteAlbum');
 Route::post('/warmmessage/user', 'WarmMessage\MessageController@user');
 Route::post('/warmmessage/list', 'WarmMessage\MessageController@list');
 Route::post('/warmmessage/message', 'WarmMessage\MessageController@send');
+
+// PWA - Wedding
+Route::post('/wedding/wirte', 'Wedding\WeddingController@write');
