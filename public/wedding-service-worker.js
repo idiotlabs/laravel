@@ -1,6 +1,7 @@
 const CACHE_NAME = 'static-cache-v1';
 
 const FILES_TO_CACHE = [
+    '/wedding',
     '/wedding/offline',
 ];
 
@@ -39,12 +40,10 @@ self.addEventListener('fetch', (event) => {
         return;
     }
     event.respondWith(
-        fetch(event.request)
-            .catch(() => {
-                return caches.open(CACHE_NAME)
-                    .then((cache) => {
-                        return cache.match('offline');
-                    });
-            })
+        fetch(event.request).catch(() => {
+            return caches.open(CACHE_NAME).then((cache) => {
+                return cache.match('offline');
+            });
+        })
     );
 });
