@@ -33,6 +33,8 @@ class Kernel extends ConsoleKernel
         $schedule->job(new WarmMessageSpread())
             ->hourly()
             ->between('8:00', '22:00');
+
+        // Crawling Naver Realtime Keyword
     }
 
     /**
