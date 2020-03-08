@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#ededed" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>김창섭 ❤ 정정은의 청첩장</title>
+    <title>김창섭 ♥ 정정은의 청첩장</title>
 
-    <meta property="og:title" content="김창섭 ❤ 정정은의 청첩장" />
+    <meta property="og:title" content="김창섭 ♥ 정정은의 청첩장" />
     <meta property="og:description" content="4월의 아름다운 날 저희 두사람, 결혼합니다." />
     <meta property="og:image" content="/images/wedding/photo1.jpg" />
     <meta property="og:url" content="/wedding" />
