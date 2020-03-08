@@ -16,7 +16,7 @@
                     4월의 아름다운 날<br />
                     저희 두 사람, 결혼합니다.
                 </div>
-                <div class="font-noti-serif-kr p-2 text-2xl"><b>김창섭 ❤ 정정은</b></div>
+                <div class="font-noti-serif-kr p-2 text-2xl"><b>김창섭 ♥ 정정은</b></div>
                 <div class="font-noti-serif-kr p-2 text-sm">
                     2020년 4월 25일 토요일 오후 5시<br />
                     아벤티움
@@ -26,20 +26,35 @@
                 <p class="font-nanum-pen text-3xl p-2">사진</p>
 
                 <div id="demo-test-gallery" class="demo-gallery grid max-w-4xl mx-auto">
-                    <a href="{{ asset('images/wedding/photo1.jpg') }}" data-size="1032x1032" data-med="{{ asset('images/wedding/photo1.jpg') }}" data-med-size="1032x1032" >
-                        <img src="{{ asset('images/wedding/photo1.jpg') }}" alt="image">
+                    <a href="{{ asset('images/wedding/studio/1.jpg') }}" data-size="1200x800" data-med="{{ asset('images/wedding/studio/1.jpg') }}" data-med-size="1200x800" >
+                        <img src="{{ asset('images/wedding/studio/1.jpg') }}" alt="image">
                     </a>
-                    <a href="{{ asset('images/wedding/photo1.jpg') }}" data-size="1032x1032" data-med="{{ asset('images/wedding/photo1.jpg') }}" data-med-size="1032x1032">
-                        <img src="{{ asset('images/wedding/photo1.jpg') }}" alt="image">
+                    <a href="{{ asset('images/wedding/studio/2.jpg') }}" data-size="1200x800" data-med="{{ asset('images/wedding/studio/2.jpg') }}" data-med-size="1200x800" >
+                        <img src="{{ asset('images/wedding/studio/2.jpg') }}" alt="image">
                     </a>
-                    <a href="{{ asset('images/wedding/photo1.jpg') }}" data-size="1032x1032" data-med="{{ asset('images/wedding/photo1.jpg') }}" data-med-size="1032x1032">
-                        <img src="{{ asset('images/wedding/photo1.jpg') }}" alt="image">
+                    <a href="{{ asset('images/wedding/studio/3.jpg') }}" data-size="800x1200" data-med="{{ asset('images/wedding/studio/3.jpg') }}" data-med-size="800x1200" >
+                        <img src="{{ asset('images/wedding/studio/3.jpg') }}" alt="image">
                     </a>
-                    <a href="{{ asset('images/wedding/photo1.jpg') }}" data-size="1032x1032" data-med="{{ asset('images/wedding/photo1.jpg') }}" data-med-size="1032x1032">
-                        <img src="{{ asset('images/wedding/photo1.jpg') }}" alt="image">
+                    <a href="{{ asset('images/wedding/studio/4.jpg') }}" data-size="800x1200" data-med="{{ asset('images/wedding/studio/4.jpg') }}" data-med-size="800x1200" >
+                        <img src="{{ asset('images/wedding/studio/4.jpg') }}" alt="image">
                     </a>
-                    <a href="{{ asset('images/wedding/photo1.jpg') }}" data-size="1032x1032" data-med="{{ asset('images/wedding/photo1.jpg') }}" data-med-size="1032x1032">
-                        <img src="{{ asset('images/wedding/photo1.jpg') }}" alt="image">
+                    <a href="{{ asset('images/wedding/studio/5.jpg') }}" data-size="1200x800" data-med="{{ asset('images/wedding/studio/5.jpg') }}" data-med-size="1200x800" >
+                        <img src="{{ asset('images/wedding/studio/5.jpg') }}" alt="image">
+                    </a>
+                    <a href="{{ asset('images/wedding/studio/6.jpg') }}" data-size="1200x800" data-med="{{ asset('images/wedding/studio/6.jpg') }}" data-med-size="1200x800" >
+                        <img src="{{ asset('images/wedding/studio/6.jpg') }}" alt="image">
+                    </a>
+                    <a href="{{ asset('images/wedding/studio/7.jpg') }}" data-size="800x1200" data-med="{{ asset('images/wedding/studio/7.jpg') }}" data-med-size="800x1200" >
+                        <img src="{{ asset('images/wedding/studio/7.jpg') }}" alt="image">
+                    </a>
+                    <a href="{{ asset('images/wedding/studio/8.jpg') }}" data-size="800x1200" data-med="{{ asset('images/wedding/studio/8.jpg') }}" data-med-size="800x1200" >
+                        <img src="{{ asset('images/wedding/studio/8.jpg') }}" alt="image">
+                    </a>
+                    <a href="{{ asset('images/wedding/studio/9.jpg') }}" data-size="1200x800" data-med="{{ asset('images/wedding/studio/9.jpg') }}" data-med-size="1200x800" >
+                        <img src="{{ asset('images/wedding/studio/9.jpg') }}" alt="image">
+                    </a>
+                    <a href="{{ asset('images/wedding/studio/10.jpg') }}" data-size="1200x800" data-med="{{ asset('images/wedding/studio/10.jpg') }}" data-med-size="1200x800" >
+                        <img src="{{ asset('images/wedding/studio/10.jpg') }}" alt="image">
                     </a>
                 </div>
 
