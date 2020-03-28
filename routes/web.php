@@ -69,10 +69,3 @@ Route::prefix('warmmessage')->group(function() {
 //Route::get('/wedding', 'Wedding\WeddingController@index');
 //Route::get('/wedding/manifest.json', 'Wedding\PWAController@manifest_json');
 //Route::get('/wedding/offline', 'Wedding\WeddingController@offline');
-
-// DEV
-Route::prefix('dev')->group(function () {
-    Route::get('/session', 'DevController@session');
-
-    Route::get('/test/log', 'DevController@test_log');
-});
