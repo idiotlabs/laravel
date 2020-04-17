@@ -5,30 +5,28 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.2",
-        "arcanedev/log-viewer": "5.x",
-        "brozot/laravel-fcm": "^1.2",
+        "php": "^7.2.5",
+        "arcanedev/log-viewer": "^7.0",
+        "apility/laravel-fcm": "^1.4",
         "fideloper/proxy": "^4.0",
         "inspector-apm/inspector-laravel": "^4.1",
-        "laravel/framework": "^6.0",
+        "laravel/framework": "^7.0",
         "laravel/helpers": "^1.1",
-        "laravel/passport": "^7.5",
-        "laravel/telescope": "^2.0",
-        "laravel/tinker": "^1.0",
-        "livewire/livewire": "^0.5.2",
+        "laravel/telescope": "^3.0",
+        "laravel/tinker": "^2.0",
+        "livewire/livewire": "^1.0",
         "predis/predis": "^1.0",
         "sentry/sentry-laravel": "^1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
-        "facade/ignition": "^1.13",
+        "facade/ignition": "^2.0",
         "filp/whoops": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.14",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^2.0",
-        "nunomaduro/phpinsights": "^1.2",
-        "phpunit/phpunit": "^8.4"
+        "nunomaduro/collision": "^4.1",
+        "phpunit/phpunit": "^8.5"
     },
     "autoload": {
         "classmap": [
