@@ -63,9 +63,3 @@ Route::prefix('warmmessage')->group(function() {
     Route::get('/admin', 'WarmMessage\AdminController@admin');
     Route::get('/admin/messages', 'WarmMessage\AdminController@messages');
 });
-
-// [Move to another server]
-// PWA - Wedding
-//Route::get('/wedding', 'Wedding\WeddingController@index');
-//Route::get('/wedding/manifest.json', 'Wedding\PWAController@manifest_json');
-//Route::get('/wedding/offline', 'Wedding\WeddingController@offline');
