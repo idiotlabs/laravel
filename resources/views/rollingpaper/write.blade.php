@@ -71,6 +71,12 @@
         </div>
         <textarea class="w-full mt-4" name="text"></textarea><br /><br />
         <button id="write" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">남기기</button>
+        <sapn class="ml-2">혹은..</sapn>
+        <a href="/rollingpaper/park" class="ml-1 text-blue-500 hover:text-blue-800" target="_blank">Park 보기</a>
+        <sapn class="ml-2">또는..</sapn>
+        <a href="/rollingpaper/lee" class="ml-1 text-blue-500 hover:text-blue-800" target="_blank">Lee 보기</a>
+        <sapn class="ml-2">아니면..</sapn>
+        <a href="/rollingpaper/jo" class="ml-1 text-blue-500 hover:text-blue-800" target="_blank">Jo 보기</a>
     </div>
 </div>
 <script>
