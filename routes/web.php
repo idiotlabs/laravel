@@ -63,3 +63,9 @@ Route::prefix('warmmessage')->group(function() {
     Route::get('/admin', 'WarmMessage\AdminController@admin');
     Route::get('/admin/messages', 'WarmMessage\AdminController@messages');
 });
+
+// RollingPaper
+Route::prefix('rollingpaper')->group(function () {
+    Route::get('/', 'RollingPaperController@write');
+    Route::get('/{name}', 'RollingPaperController@paper');
+});
