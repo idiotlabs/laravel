@@ -30,9 +30,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('telescope:prune --hours=48')->daily();
 
         // WM Message spread
-        $schedule->job(new WarmMessageSpread())
-            ->hourly()
-            ->between('8:00', '22:00');
+//        $schedule->job(new WarmMessageSpread())->hourly()->between('8:00', '22:00');
 
         // Crawling Naver Realtime Keyword
     }
