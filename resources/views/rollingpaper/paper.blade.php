@@ -83,7 +83,7 @@
 
         @media only screen and (max-width: 767px) and (min-width: 320px) {
             .masonry {
-                column-count: 2;
+                column-count: 1;
             }
         }
 
