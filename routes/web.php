@@ -65,7 +65,11 @@ Route::prefix('warmmessage')->group(function() {
 });
 
 // RollingPaper
-Route::prefix('rollingpaper')->group(function () {
-    Route::get('/', 'RollingPaperController@write');
-    Route::get('/{name}', 'RollingPaperController@paper');
+Route::group(['middleware'=>'HtmlMinifier'], function() {
+    Route::prefix('rollingpaper')->group(
+        function () {
+            Route::get('/', 'RollingPaperController@write');
+            Route::get('/{name}', 'RollingPaperController@paper');
+        }
+    );
 });
