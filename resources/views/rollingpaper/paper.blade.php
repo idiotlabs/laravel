@@ -197,6 +197,7 @@
     @endforeach
 
 </div>
+<script src="{{ mix('js/app.js') }}"></script>
 <script>
     function resizeAllGridItems() {
         let allItems = document.getElementsByClassName("item");
@@ -220,6 +221,17 @@
 
     // window.onload = resizeAllGridItems();
     // window.addEventListener("resize", resizeAllGridItems);
+
+    // confetti
+    function callConfetti() {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+
+    callConfetti();
 </script>
 </body>
 </html>

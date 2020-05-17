@@ -15,8 +15,8 @@ Vue.use(BootstrapVue);
 window.PhotoSwipe = require('photoswipe/dist/photoswipe');
 window.PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default');
 
-window.MyPromise = require('promise');
-window.confetti = require('canvas-confetti');
+// canvas-confetti
+window.confetti = require('canvas-confetti/src/confetti');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
