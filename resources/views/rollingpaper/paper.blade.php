@@ -81,7 +81,13 @@
             }
         }
 
-        @media only screen and (max-width: 767px) and (min-width: 320px) {
+        @media only screen and (max-width: 767px) and (min-width: 426px) {
+            .masonry {
+                column-count: 2;
+            }
+        }
+
+        @media only screen and (max-width: 425px) and (min-width: 320px) {
             .masonry {
                 column-count: 1;
             }
