@@ -6,8 +6,8 @@
     "type": "project",
     "require": {
         "php": "^7.2.5",
-        "arcanedev/log-viewer": "^7.0",
         "apility/laravel-fcm": "^1.4",
+        "arcanedev/log-viewer": "^7.0",
         "fideloper/proxy": "^4.0",
         "inspector-apm/inspector-laravel": "^4.1",
         "laravel/framework": "^7.0",
