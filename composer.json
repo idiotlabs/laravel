@@ -12,7 +12,6 @@
         "inspector-apm/inspector-laravel": "^4.1",
         "laravel/framework": "^7.0",
         "laravel/helpers": "^1.1",
-        "laravel/telescope": "^3.0",
         "laravel/tinker": "^2.0",
         "livewire/livewire": "^1.0",
         "predis/predis": "^1.0",
