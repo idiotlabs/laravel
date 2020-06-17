@@ -45,6 +45,12 @@ Route::prefix('dice')->group(function () {
     Route::get('/privacy', 'DiceController@Privacy');
 });
 
+// Dice2
+Route::prefix('dice2')->group(function () {
+    Route::get('/agreement', 'Dice2Controller@agreement');
+    Route::get('/privacy', 'Dice2Controller@Privacy');
+});
+
 // Sucol
 Route::prefix('sucol')->group(function () {
     Route::get('/', 'Sucol\SucolController@index')->middleware('auth.sucol');
