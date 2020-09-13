@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\CrawlingYoutubeTrend;
 use App\Jobs\WarmMessagePush;
 use App\Jobs\WarmMessageSpread;
 use Illuminate\Console\Scheduling\Schedule;
@@ -32,6 +33,9 @@ class Kernel extends ConsoleKernel
 //        $schedule->job(new WarmMessageSpread())->hourly()->between('8:00', '22:00');
 
         // Crawling Naver Realtime Keyword
+
+        // Crawling Youtube trend
+        $schedule->job(new CrawlingYoutubeTrend())->everyThreeHours();
     }
 
     /**

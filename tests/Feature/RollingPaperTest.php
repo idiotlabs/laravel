@@ -2,6 +2,9 @@
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+use function Pest\Faker\faker;
+use function PHPUnit\Framework\assertEquals;
+
 uses(RefreshDatabase::class);
 
 test('post', function () {
