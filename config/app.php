@@ -160,7 +160,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        LaravelFCM\FCMServiceProvider::class,
+//        LaravelFCM\FCMServiceProvider::class,
 
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
 
@@ -213,8 +213,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'FCM'      => LaravelFCM\Facades\FCM::class,
-        'FCMGroup' => LaravelFCM\Facades\FCMGroup::class, // Optional
+//        'FCM'      => LaravelFCM\Facades\FCM::class,
+//        'FCMGroup' => LaravelFCM\Facades\FCMGroup::class, // Optional
     ],
 
 ];

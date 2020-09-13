@@ -8,10 +8,10 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\DB;
-use LaravelFCM\Facades\FCM;
-use LaravelFCM\Message\OptionsBuilder;
-use LaravelFCM\Message\PayloadDataBuilder;
-use LaravelFCM\Message\PayloadNotificationBuilder;
+//use LaravelFCM\Facades\FCM;
+//use LaravelFCM\Message\OptionsBuilder;
+//use LaravelFCM\Message\PayloadDataBuilder;
+//use LaravelFCM\Message\PayloadNotificationBuilder;
 
 class WarmMessagePush implements ShouldQueue
 {
@@ -34,6 +34,7 @@ class WarmMessagePush implements ShouldQueue
      */
     public function handle()
     {
+        /*
         // wm_spread table에서 발송이 안된 (send가 0인) 레코드를 가져온다.
         $push_lists =  DB::table('wm_spread')
                         ->leftJoin('wm_message', 'wm_spread.message_id', '=', 'wm_message.id')
@@ -92,5 +93,6 @@ class WarmMessagePush implements ShouldQueue
 //
 //        // return Array (key:token, value:errror) - in production you should remove from your database the tokens present in this array
 //        $downstreamResponse->tokensWithError();
+        */
     }
 }

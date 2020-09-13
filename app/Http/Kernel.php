@@ -35,7 +35,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Inspector\Laravel\Middleware\WebRequestMonitoring::class,
+//            \Inspector\Laravel\Middleware\WebRequestMonitoring::class,
         ],
 
         'api' => [
@@ -44,7 +44,7 @@ class Kernel extends HttpKernel
 //            \App\Http\Middleware\EncryptCookies::class,
 //            \Illuminate\Session\Middleware\StartSession::class,
 //            \App\Http\Middleware\VerifyCsrfToken::class,
-            \Inspector\Laravel\Middleware\WebRequestMonitoring::class,
+//            \Inspector\Laravel\Middleware\WebRequestMonitoring::class,
         ],
     ];
 
