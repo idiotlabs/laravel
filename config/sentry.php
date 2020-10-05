@@ -5,7 +5,7 @@ return [
     'dsn' => env('SENTRY_LARAVEL_DSN', env('SENTRY_DSN')),
 
     // capture release as git sha
-    // 'release' => trim(exec('git --git-dir ' . base_path('.git') . ' log --pretty="%h" -n1 HEAD')),
+     'release' => trim(exec('git --git-dir ' . base_path('.git') . ' log --pretty="%h" -n1 HEAD')),
 
     'breadcrumbs' => [
 
@@ -13,5 +13,7 @@ return [
         'sql_bindings' => true,
 
     ],
+
+    'traces_sample_rate' => 1.0 # be sure to lower this in production to prevent quota issues
 
 ];
