@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +26,7 @@ Route::post('/warmmessage/message', 'WarmMessage\MessageController@send');
 
 // RollingPaper
 Route::post('/rollingpaper/wirte', 'RollingPaperController@post');
+
+// Youtube Trend
+Route::post('/youtube/trend', [\App\Http\Controllers\YoutubeController::class, 'trend']);
+Route::post('/youtube/trend/{count}', [\App\Http\Controllers\YoutubeController::class, 'trend']);
