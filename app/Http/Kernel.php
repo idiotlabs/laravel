@@ -39,11 +39,8 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            'throttle:60,1',
-            'bindings',
-//            \App\Http\Middleware\EncryptCookies::class,
-//            \Illuminate\Session\Middleware\StartSession::class,
-//            \App\Http\Middleware\VerifyCsrfToken::class,
+//            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
 //            \Inspector\Laravel\Middleware\WebRequestMonitoring::class,
         ],
     ];
