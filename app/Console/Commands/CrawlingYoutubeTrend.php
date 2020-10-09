@@ -64,7 +64,7 @@ class CrawlingYoutubeTrend extends Command
         $response = json_decode($response, true);
 
         // record
-        $count = \App\CrawlingYoutubeTrend::max('count') + 1 ?? 1;
+        $count = \App\Models\CrawlingYoutubeTrend::max('count') + 1 ?? 1;
         $rank =  0;
 
         foreach ($response as $item) {
