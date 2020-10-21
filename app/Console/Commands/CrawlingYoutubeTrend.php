@@ -71,7 +71,7 @@ class CrawlingYoutubeTrend extends Command
             $item['count'] = $count;
             $item['rank'] = ++$rank;
 
-            \App\CrawlingYoutubeTrend::create($item);
+            \App\Models\CrawlingYoutubeTrend::create($item);
         }
 
         return 0;
