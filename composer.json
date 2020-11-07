@@ -10,6 +10,7 @@
         "ezpubsub/ezpubsub-php": "^1.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^7.0",
+        "inspector-apm/inspector-laravel": "^4.6",
         "laravel/framework": "^8.0",
         "laravel/helpers": "^1.1",
         "laravel/telescope": "^4.0",
