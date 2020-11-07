@@ -67,7 +67,6 @@
             "@php artisan package:discover"
         ],
         "post-update-cmd": [
-            "@php artisan telescope:publish --ansi"
         ]
     },
     "config": {
