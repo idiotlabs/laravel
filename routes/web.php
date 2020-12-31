@@ -70,7 +70,7 @@ Route::prefix('warmmessage')->group(function () {
     Route::get('/admin/messages', 'WarmMessage\AdminController@messages');
 });
 
-// RollingPaper
+// RollingPaper for Church
 Route::group(['middleware'=>'HtmlMinifier'], function () {
     Route::prefix('rollingpaper')->group(
         function () {
@@ -78,4 +78,9 @@ Route::group(['middleware'=>'HtmlMinifier'], function () {
             Route::get('/{name}', 'RollingPaperController@paper');
         }
     );
+});
+
+// SK2
+Route::prefix('sk2')->group(function() {
+    Route::get('/latest', 'Sk2Conroller@latest');
 });
