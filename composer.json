@@ -5,9 +5,8 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "arcanedev/log-viewer": "^8.0",
-        "ezpubsub/ezpubsub-php": "^1.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^7.0",
         "inspector-apm/inspector-laravel": "^4.6",
@@ -27,7 +26,6 @@
         "filp/whoops": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.14",
         "fzaninotto/faker": "^1.4",
-        "imanghafoori/laravel-microscope": "^1.0",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^5.0",
         "pestphp/pest": "^0.3.1",
