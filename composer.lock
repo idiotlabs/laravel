@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7712586092e8909ec9e6ca038d0d0009",
+    "content-hash": "93331ad7ae8af3ce57f5330df16cd7e8",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -678,56 +678,6 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
-        },
-        {
-            "name": "ezpubsub/ezpubsub-php",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/EzPubSub/ezpubsub-php.git",
-                "reference": "26f833dfbe5b54ab1dd50ec049c8a7ea743af6e5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/EzPubSub/ezpubsub-php/zipball/26f833dfbe5b54ab1dd50ec049c8a7ea743af6e5",
-                "reference": "26f833dfbe5b54ab1dd50ec049c8a7ea743af6e5",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.0",
-                "php": "^7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "EzPubSub\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nyi Nyi Lwin",
-                    "email": "nyinyilwin1992@hotmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHP library for EzPubSub",
-            "homepage": "https://github.com/ezpubsub/ezpubsub-php",
-            "keywords": [
-                "ezpubsub",
-                "ezpubsub-php"
-            ],
-            "support": {
-                "issues": "https://github.com/EzPubSub/ezpubsub-php/issues",
-                "source": "https://github.com/EzPubSub/ezpubsub-php/tree/1.0.0"
-            },
-            "time": "2020-09-13T08:29:49+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -7183,26 +7133,27 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "v1.9.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e"
+                "reference": "5ffe7db6c80f441f150fc88008d64e64af66634b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
-                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/5ffe7db6c80f441f150fc88008d64e64af66634b",
+                "reference": "5ffe7db6c80f441f150fc88008d64e64af66634b",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.3.3 || ^7.0 || ^8.0"
             },
             "require-dev": {
                 "ext-intl": "*",
                 "phpunit/phpunit": "^4.8.35 || ^5.7",
                 "squizlabs/php_codesniffer": "^2.9.2"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -7231,10 +7182,10 @@
             ],
             "support": {
                 "issues": "https://github.com/fzaninotto/Faker/issues",
-                "source": "https://github.com/fzaninotto/Faker/tree/v1.9.2"
+                "source": "https://github.com/fzaninotto/Faker/tree/master"
             },
             "abandoned": true,
-            "time": "2020-12-11T09:56:16+00:00"
+            "time": "2020-12-11T09:59:14+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -7286,67 +7237,6 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
-        },
-        {
-            "name": "imanghafoori/laravel-microscope",
-            "version": "v1.0.138",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/imanghafoori1/laravel-microscope.git",
-                "reference": "060b5b475de84c508bf2be5d3ea6199ee5d93d07"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/imanghafoori1/laravel-microscope/zipball/060b5b475de84c508bf2be5d3ea6199ee5d93d07",
-                "reference": "060b5b475de84c508bf2be5d3ea6199ee5d93d07",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "5.*|6.*|7.*|8.*",
-                "php": "^7.1.3"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0",
-                "phpunit/phpunit": "^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Imanghafoori\\LaravelMicroscope\\LaravelMicroscopeServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Imanghafoori\\LaravelMicroscope\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Iman",
-                    "email": "imanghafoori1@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Auto test your laravel application",
-            "homepage": "https://github.com/imanghafoori1/laravel-microscope",
-            "keywords": [
-                "laravel-microscope",
-                "laravel-testing"
-            ],
-            "support": {
-                "issues": "https://github.com/imanghafoori1/laravel-microscope/issues",
-                "source": "https://github.com/imanghafoori1/laravel-microscope/tree/v1.0.138"
-            },
-            "time": "2020-11-09T16:35:23+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -10050,7 +9940,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4"
+        "php": "^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
