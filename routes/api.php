@@ -19,6 +19,13 @@ Route::post('sucol/artist/album', 'Sucol\AlbumController@addAlbum');
 Route::put('sucol/artist/album', 'Sucol\AlbumController@updateAlbum');
 Route::delete('sucol/artist/album', 'Sucol\AlbumController@deleteAlbum');
 
+// playten practice
+Route::prefix('playten')->group(function () {
+    Route::post('/practice/list', [\App\Http\Controllers\Playten\PracticeController::class, 'list']);
+    Route::post('/practice/scan', [\App\Http\Controllers\Playten\PracticeController::class, 'scan']);
+    Route::post('/practice/scan/finish', [\App\Http\Controllers\Playten\PracticeController::class, 'scan_finish']);
+});
+
 // warm_message
 Route::post('/warmmessage/user', 'WarmMessage\MessageController@user');
 Route::post('/warmmessage/list', 'WarmMessage\MessageController@list');
