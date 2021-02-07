@@ -28,8 +28,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('telescope:prune --hours=48')->daily();
-
         // WM Message spread
 //        $schedule->job(new WarmMessageSpread())->hourly()->between('8:00', '22:00');
 
@@ -37,6 +35,8 @@ class Kernel extends ConsoleKernel
 
         // Crawling Youtube trend
         $schedule->job(new CrawlingYoutubeTrend())->everyThreeHours();
+
+        // check sk2 api
     }
 
     /**
